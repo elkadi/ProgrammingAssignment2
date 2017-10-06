@@ -9,15 +9,14 @@ makeCacheMatrix <- function(x = matrix()) {
     m <<- NULL
   }
   get <- function() x
-  setsolve <- function(solve) m <<- solve
+  setsolve <- function(solve) m <<- solve  #please note that solve is the function used for inverse of a matrix; solve is used to represent inverse here too
   getsolve <- function() m
   list(set = set, get = get,
        setsolve = setsolve,
        getsolve = getsolve)
 }
 ## This function computes the inverse of the special "matrix" returned by makeCacheMatrix above.
-## If the inverse has already been calculated (and the matrix has not changed), then the cachesolve
-##  should retrieve the inverse from the cache.
+## If the inverse has already been calculated (and the matrix has not changed), then the cachesolve should retrieve the inverse from the cache.
 
 cacheSolve <- function(x, ...) {
   m <- x$getsolve()
